@@ -1,0 +1,30 @@
+The data was collected from a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz was captured. . The obtained dataset had been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
+
+Data reference: Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+The test data from the files 'subject_test.txt', 'y_test.txt' and 'X_test.txt' was first read into the database 'testds'.
+This data base was modified to include column names. The first two columns were labelled 'subject id' and 'activity id'. The remaining columns were labelled using the names obtained from the 'features.txt' file.
+
+This procedure was repeated for the train data resulting in the database 'trainds'.
+
+The two databases 'testds' and 'trainds' were merged into a third database 'merged.data'.
+
+The activity column of 'merged.data' was modified swapping the numerical identifiers for activities with more meaningful text descriptions obtained from the file 'activity-labels.txt'.
+
+The 'merged.data' database was then culled to include only the columns with mean and std dev values using the 'grep' function. The resulting database is labelled 'msdds'.
+
+The means of each variable for each activity and each subject were calculated using the 'summarise_all' function from the 'dplyr' library with the results stored in 'tidy_ds'.
+
+Finally 'tidy_ds' is output into the file 'tidy_ds.txt'.
+
+
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
